@@ -1,25 +1,24 @@
-// functions
-function addTowNumers(a: number, b: number): number {
-    return a + b
+// any type
+let age: any
+let title
+
+age = 30
+age = false
+
+title = 25
+title = {
+    hello:'world'
 }
 
-const subtractTowNumbers = (a: number, b: number): number => {
-    return a - b
+// any type in arrays
+let things: any[] = ['hello',true,30,null]
+things.push({id:123})
+
+// functions & any
+function addTogether(value: any): any {
+    return value + value
 }
 
-addTowNumers(1, 2)
-subtractTowNumbers(1, 2)
+const resultOne = addTogether('hello')
+const resultTwo = addTogether(6)
 
-function addAllNumbers(items: number[]): void {
-    const total = items.reduce((a, b) => a + b, 0)
-    console.log(total)
-}
-
-addAllNumbers([1, 2, 3, 4, 5])
-
-// return type inference
-function formatGreeting(name: string, greeting: string): string {
-    return `${greeting}, ${name}`
-}
-
-const result = formatGreeting('mario', 'hello')
