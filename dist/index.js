@@ -1,17 +1,23 @@
 "use strict";
-// union types
-let someId;
-someId = 1;
-someId = '2';
-let email = null;
-email = 'mario@drackass.dev';
-email = null;
-let anotherId;
-anotherId = 'zgfiuhzvycuiz';
-anotherId = 42;
 // union type pitfall
 function swapIdType(id) {
-    parseInt(id);
-    return id;
+    if (typeof id === 'string') {
+        // can use string methods
+        return parseInt(id);
+    }
+    else {
+        // can use number methods and properties
+        return id.toString();
+    }
 }
-swapIdType('5');
+const idOne = swapIdType(1);
+const idTwo = swapIdType('2');
+console.log(idOne, idTwo);
+function logDetails(value) {
+    if (value.type === 'user') {
+        console.log(value.username, value.email);
+    }
+    else {
+        console.log(value.firstName, value.age);
+    }
+}
