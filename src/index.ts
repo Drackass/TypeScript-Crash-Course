@@ -1,34 +1,29 @@
-// interfaces
-interface Author {
-    name: string,
-    avatar: string
+// type aliases
+
+// exemple 1
+type Rgb = [number, number, number]
+
+function getRandomColor(): Rgb {
+    const r = Math.floor(Math.random() * 255) 
+    const g = Math.floor(Math.random() * 255)
+    const b = Math.floor(Math.random() * 255)
+    return [r, g, b]
 }
 
-const authorOne: Author = {name: 'mario', avatar: '/avatar.png'}
+const colorOne = getRandomColor()
+const colorTwo = getRandomColor()
+console.log(colorOne, colorTwo)
 
-interface Post {
-    title: string,
-    body: string,
-    tags: string[],
-    create_at: Date,
-    author: Author
+type User = {
+    name: string
+    score: number
 }
 
-const newPost: Post = {
-    title: 'test',
-    body: 'test',
-    tags: ['test'],
-    create_at: new Date(),
-    author: authorOne
+const userOne: User = {name: 'John', score: 10}
+
+function formatUser(user: User): void {
+    console.log(`${user.name} has a score of ${user.score}`)
 }
 
-// as function argument types
-function createPost(post: Post): void {
-    console.log(`Created post ${post.title} by ${post.author.name}`)
-}
-
-createPost(newPost)
-
-// with arrays
-let posts: Post[] = []
-posts.push(newPost)
+formatUser(userOne)
+formatUser({name: 'Jane', score: 20})
