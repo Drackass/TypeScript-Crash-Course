@@ -1,29 +1,24 @@
-// type aliases
+// union types
+let someId: number | string
 
-// exemple 1
-type Rgb = [number, number, number]
+someId = 1
+someId = '2'
 
-function getRandomColor(): Rgb {
-    const r = Math.floor(Math.random() * 255) 
-    const g = Math.floor(Math.random() * 255)
-    const b = Math.floor(Math.random() * 255)
-    return [r, g, b]
+let email: string | null = null
+
+email = 'mario@drackass.dev'
+email = null
+
+type Id = number | string
+let anotherId: Id
+
+anotherId = 'zgfiuhzvycuiz'
+anotherId = 42
+
+// union type pitfall
+function swapIdType(id:Id): Id {
+    parseInt(id)
+    return id
 }
 
-const colorOne = getRandomColor()
-const colorTwo = getRandomColor()
-console.log(colorOne, colorTwo)
-
-type User = {
-    name: string
-    score: number
-}
-
-const userOne: User = {name: 'John', score: 10}
-
-function formatUser(user: User): void {
-    console.log(`${user.name} has a score of ${user.score}`)
-}
-
-formatUser(userOne)
-formatUser({name: 'Jane', score: 20})
+swapIdType('5')
