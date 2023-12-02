@@ -1,24 +1,26 @@
-// any type
-let age: any
-let title
+// tuples
+let person: [string, number, boolean] = ['John', 25, true]
 
-age = 30
-age = false
+// tuples exemples
+let hsla: [number, string, string, number]
+hsla = [120, '100%', '50%', 1]
 
-title = 25
-title = {
-    hello:'world'
+let xy: [number, number]
+xy = [94.7, 20.1]
+
+function useCoords(): [number, number] {
+    // get coords
+
+    const lat = 100
+    const long = 50
+
+    return [lat, long]
 }
 
-// any type in arrays
-let things: any[] = ['hello',true,30,null]
-things.push({id:123})
+const [lat, long] = useCoords()
 
-// functions & any
-function addTogether(value: any): any {
-    return value + value
-}
+// named tuples
+let user: [name: string,age: number]
 
-const resultOne = addTogether('hello')
-const resultTwo = addTogether(6)
-
+user = ['peach', 25]
+console.log(user[0]);

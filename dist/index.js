@@ -1,19 +1,19 @@
 "use strict";
-// any type
-let age;
-let title;
-age = 30;
-age = false;
-title = 25;
-title = {
-    hello: 'world'
-};
-// any type in arrays
-let things = ['hello', true, 30, null];
-things.push({ id: 123 });
-// functions & any
-function addTogether(value) {
-    return value + value;
+// tuples
+let person = ['John', 25, true];
+// tuples exemples
+let hsla;
+hsla = [120, '100%', '50%', 1];
+let xy;
+xy = [94.7, 20.1];
+function useCoords() {
+    // get coords
+    const lat = 100;
+    const long = 50;
+    return [lat, long];
 }
-const resultOne = addTogether('hello');
-const resultTwo = addTogether(6);
+const [lat, long] = useCoords();
+// named tuples
+let user;
+user = ['peach', 25];
+console.log(user[0]);
