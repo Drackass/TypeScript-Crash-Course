@@ -1,37 +1,25 @@
-// arrays
-let names: string[] = ['Mario', 'Luigi', 'Yoshi']
-let ages: number[] = [25, 28, 24]
-
-names.push('Toad')
-ages.push(35)
-
-// type inference with arrays
-let fruits = ['apple', 'banana', 'orange']
-fruits.push('pear')
-
-const f = fruits[2]
-
-let things = [1, true, 'hello']
-
-const t = things[1]
-
-// object literals
-let user: {firstName: string, age: number, id: number} = {
-    firstName: 'mario',
-    age: 30,
-    id: 1,
+// functions
+function addTowNumers(a: number, b: number): number {
+    return a + b
 }
 
-user.firstName = 'peach'
-user.id = 2
-
-// type inference with object literals
-let person = {
-    name: 'luigi',
-    score: 35
+const subtractTowNumbers = (a: number, b: number): number => {
+    return a - b
 }
 
-person.name = 'bowser'
-person.score = 100
+addTowNumers(1, 2)
+subtractTowNumbers(1, 2)
 
-const score = person.score
+function addAllNumbers(items: number[]): void {
+    const total = items.reduce((a, b) => a + b, 0)
+    console.log(total)
+}
+
+addAllNumbers([1, 2, 3, 4, 5])
+
+// return type inference
+function formatGreeting(name: string, greeting: string): string {
+    return `${greeting}, ${name}`
+}
+
+const result = formatGreeting('mario', 'hello')

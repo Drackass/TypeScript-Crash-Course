@@ -1,28 +1,20 @@
 "use strict";
-// arrays
-let names = ['Mario', 'Luigi', 'Yoshi'];
-let ages = [25, 28, 24];
-names.push('Toad');
-ages.push(35);
-// type inference with arrays
-let fruits = ['apple', 'banana', 'orange'];
-fruits.push('pear');
-const f = fruits[2];
-let things = [1, true, 'hello'];
-const t = things[1];
-// object literals
-let user = {
-    firstName: 'mario',
-    age: 30,
-    id: 1,
+// functions
+function addTowNumers(a, b) {
+    return a + b;
+}
+const subtractTowNumbers = (a, b) => {
+    return a - b;
 };
-user.firstName = 'peach';
-user.id = 2;
-// type inference with object literals
-let person = {
-    name: 'luigi',
-    score: 35
-};
-person.name = 'bowser';
-person.score = 100;
-const score = person.score;
+addTowNumers(1, 2);
+subtractTowNumbers(1, 2);
+function addAllNumbers(items) {
+    const total = items.reduce((a, b) => a + b, 0);
+    console.log(total);
+}
+addAllNumbers([1, 2, 3, 4, 5]);
+// return type inference
+function formatGreeting(name, greeting) {
+    return `${greeting}, ${name}`;
+}
+const result = formatGreeting('mario', 'hello');
