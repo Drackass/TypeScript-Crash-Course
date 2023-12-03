@@ -1,29 +1,49 @@
-// Reusable Interfaces 
-interface hasQuantity {
-    quantity: number
+// Reusable Interfaces
+type Calculator = (numOne: number, numTwo: number) => number
+
+function addTowNumbers(a: number, b: number) {
+    return a + b
 }
 
-const something: hasQuantity = {quantity: 50}
-
-function printQuantity(item: hasQuantity): void {
-    console.log(`the quantity of the item is ${item.quantity}`)
+function multiplyTowNumbers(first: number, second: number) {
+    return first * second
 }
 
-const fruit = {
-    name: 'mango',
-    quantity: 50
+function squareNumber(num: number) {
+    return num * num
 }
 
-const vehicle = {
-    type: 'car',
-    quantity: 3
+function joinTowNumbers(numOne: number, numTwo: number) {
+    return `${numOne}${numTwo}`
 }
 
-const person = {
-    name: 'mario',
-    age: 30,
+let calcs: Calculator[] = []
+
+calcs.push(addTowNumbers)
+calcs.push(multiplyTowNumbers)
+calcs.push(joinTowNumbers)
+calcs.push(squareNumber)
+
+//  function signitures on interfaces
+interface HasArea {
+	name: string
+	// calcArea: (a: number) => number
+	calcArea(a: number): number
 }
 
-printQuantity(fruit)
-printQuantity(vehicle)
-printQuantity({quantity: 50, title: 'hello'})
+const shapeOne: HasArea = {
+	name: 'square',
+	calcArea(l: number) {
+		return l * l
+	},
+}
+
+const shapeTwo: HasArea = {
+	name: 'circle',
+	calcArea(r: number) {
+		return (Math.PI * r) ^ 2
+	},
+}
+
+shapeOne.calcArea(5)
+shapeTwo.calcArea(10)

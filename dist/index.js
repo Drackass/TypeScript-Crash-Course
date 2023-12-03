@@ -1,20 +1,32 @@
 "use strict";
-const something = { quantity: 50 };
-function printQuantity(item) {
-    console.log(`the quantity of the item is ${item.quantity}`);
+function addTowNumbers(a, b) {
+    return a + b;
 }
-const fruit = {
-    name: 'mango',
-    quantity: 50
+function multiplyTowNumbers(first, second) {
+    return first * second;
+}
+function squareNumber(num) {
+    return num * num;
+}
+function joinTowNumbers(numOne, numTwo) {
+    return `${numOne}${numTwo}`;
+}
+let calcs = [];
+calcs.push(addTowNumbers);
+calcs.push(multiplyTowNumbers);
+calcs.push(joinTowNumbers);
+calcs.push(squareNumber);
+const shapeOne = {
+    name: 'square',
+    calcArea(l) {
+        return l * l;
+    },
 };
-const vehicle = {
-    type: 'car',
-    quantity: 3
+const shapeTwo = {
+    name: 'circle',
+    calcArea(r) {
+        return (Math.PI * r) ^ 2;
+    },
 };
-const person = {
-    name: 'mario',
-    age: 30,
-};
-printQuantity(fruit);
-printQuantity(vehicle);
-printQuantity({ quantity: 50, title: 'hello' });
+shapeOne.calcArea(5);
+shapeTwo.calcArea(10);
