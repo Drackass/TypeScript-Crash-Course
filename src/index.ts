@@ -1,40 +1,29 @@
-// type guard
-type Id = number | string
-
-// union type pitfall
-function swapIdType(id:Id) {
-    if (typeof id === 'string') {
-        // can use string methods
-        return parseInt(id)
-    } else {
-        // can use number methods and properties
-        return id.toString()
-    }
+// Reusable Interfaces 
+interface hasQuantity {
+    quantity: number
 }
 
-const idOne = swapIdType(1)
-const idTwo = swapIdType('2')
+const something: hasQuantity = {quantity: 50}
 
-console.log(idOne, idTwo)
-
-// tagged interfaces
-interface User {
-    type: 'user'
-    username: string
-    email: string
-    id: Id
-}
-interface Person {
-    type: 'person'
-    firstName: string
-    age: number
-    id: Id
+function printQuantity(item: hasQuantity): void {
+    console.log(`the quantity of the item is ${item.quantity}`)
 }
 
-function logDetails(value: User | Person): void {
-    if (value.type === 'user') {
-        console.log(value.username, value.email)
-    } else {
-        console.log(value.firstName, value.age)
-    }
+const fruit = {
+    name: 'mango',
+    quantity: 50
 }
+
+const vehicle = {
+    type: 'car',
+    quantity: 3
+}
+
+const person = {
+    name: 'mario',
+    age: 30,
+}
+
+printQuantity(fruit)
+printQuantity(vehicle)
+printQuantity({quantity: 50, title: 'hello'})

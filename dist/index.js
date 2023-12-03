@@ -1,23 +1,20 @@
 "use strict";
-// union type pitfall
-function swapIdType(id) {
-    if (typeof id === 'string') {
-        // can use string methods
-        return parseInt(id);
-    }
-    else {
-        // can use number methods and properties
-        return id.toString();
-    }
+const something = { quantity: 50 };
+function printQuantity(item) {
+    console.log(`the quantity of the item is ${item.quantity}`);
 }
-const idOne = swapIdType(1);
-const idTwo = swapIdType('2');
-console.log(idOne, idTwo);
-function logDetails(value) {
-    if (value.type === 'user') {
-        console.log(value.username, value.email);
-    }
-    else {
-        console.log(value.firstName, value.age);
-    }
-}
+const fruit = {
+    name: 'mango',
+    quantity: 50
+};
+const vehicle = {
+    type: 'car',
+    quantity: 3
+};
+const person = {
+    name: 'mario',
+    age: 30,
+};
+printQuantity(fruit);
+printQuantity(vehicle);
+printQuantity({ quantity: 50, title: 'hello' });
