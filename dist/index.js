@@ -1,32 +1,26 @@
 "use strict";
-function addTowNumbers(a, b) {
-    return a + b;
-}
-function multiplyTowNumbers(first, second) {
-    return first * second;
-}
-function squareNumber(num) {
-    return num * num;
-}
-function joinTowNumbers(numOne, numTwo) {
-    return `${numOne}${numTwo}`;
-}
-let calcs = [];
-calcs.push(addTowNumbers);
-calcs.push(multiplyTowNumbers);
-calcs.push(joinTowNumbers);
-calcs.push(squareNumber);
-const shapeOne = {
-    name: 'square',
-    calcArea(l) {
-        return l * l;
+const user = {
+    id: 1,
+    format() {
+        return `This user has an id of ${this.id}`;
+    }
+};
+const bill = {
+    id: 2,
+    amount: 50,
+    server: 'mario',
+    format() {
+        return `Bill with id ${this.id} has £${this.amount} to pay`;
     },
 };
-const shapeTwo = {
-    name: 'circle',
-    calcArea(r) {
-        return (Math.PI * r) ^ 2;
-    },
-};
-shapeOne.calcArea(5);
-shapeTwo.calcArea(10);
+function printFormatted(val) {
+    console.log(val.format());
+}
+function printBill(bill) {
+    console.log('server:', bill.server);
+    console.log(bill.format());
+}
+printFormatted(user);
+printFormatted(bill);
+// printBill(user)
+printBill(bill);

@@ -1,49 +1,40 @@
-// Reusable Interfaces
-type Calculator = (numOne: number, numTwo: number) => number
-
-function addTowNumbers(a: number, b: number) {
-    return a + b
+// extending interfaces
+interface HasFormatter {
+    format(): string;
 }
 
-function multiplyTowNumbers(first: number, second: number) {
-    return first * second
+interface Bill extends HasFormatter {
+    id: string | number
+    amount: number
+    server: string
 }
 
-function squareNumber(num: number) {
-    return num * num
+const user = {
+    id: 1,
+    format(): string {
+        return `This user has an id of ${this.id}`
+    }
 }
 
-function joinTowNumbers(numOne: number, numTwo: number) {
-    return `${numOne}${numTwo}`
-}
-
-let calcs: Calculator[] = []
-
-calcs.push(addTowNumbers)
-calcs.push(multiplyTowNumbers)
-calcs.push(joinTowNumbers)
-calcs.push(squareNumber)
-
-//  function signitures on interfaces
-interface HasArea {
-	name: string
-	// calcArea: (a: number) => number
-	calcArea(a: number): number
-}
-
-const shapeOne: HasArea = {
-	name: 'square',
-	calcArea(l: number) {
-		return l * l
+const bill = {
+	id: 2,
+	amount: 50,
+	server: 'mario',
+	format(): string {
+		return `Bill with id ${this.id} has £${this.amount} to pay`
 	},
 }
 
-const shapeTwo: HasArea = {
-	name: 'circle',
-	calcArea(r: number) {
-		return (Math.PI * r) ^ 2
-	},
+function printFormatted(val: HasFormatter): void {
+    console.log(val.format())
 }
 
-shapeOne.calcArea(5)
-shapeTwo.calcArea(10)
+function printBill(bill: Bill): void {
+    console.log('server:', bill.server)
+    console.log(bill.format())
+}
+
+printFormatted(user)
+printFormatted(bill)
+// printBill(user)
+printBill(bill)
