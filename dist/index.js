@@ -7,6 +7,9 @@ class MenuItem {
     get details() {
         return `${this.title} - ${this.price}`;
     }
+    format() {
+        return `this menu item is called ${this.title} and is ${this.price}`;
+    }
 }
 class Pizza extends MenuItem {
     constructor(title, price) {
@@ -25,7 +28,7 @@ class Pizza extends MenuItem {
     }
 }
 const pizza = new Pizza('mario special', 15);
-function printMenuItem(item) {
-    console.log(item.details);
+function printFormatted(val) {
+    console.log(val.format());
 }
-printMenuItem(pizza);
+printFormatted(pizza);
