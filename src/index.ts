@@ -20,10 +20,15 @@ class Pizza {
     }
 }
 
-const pizza = new Pizza('mario special', 15)
+const pizzaOne = new Pizza('mario special', 15)
+const pizzaTwo = new Pizza('luigi special', 10)
 
-pizza.selectBase('garlic')
-pizza.addTopping('mushrooms')
-pizza.addTopping('olives')
+function addMushroomToPizzas(pizzas: Pizza[]): void {
+    for (const p of pizzas) {
+        p.addTopping('mushroom')
+    }
+}
 
-console.log(pizza)
+addMushroomToPizzas([pizzaOne, pizzaTwo])
+
+console.log(pizzaOne, pizzaTwo)
