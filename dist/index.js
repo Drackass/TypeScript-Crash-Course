@@ -1,10 +1,10 @@
 "use strict";
 class Pizza {
     constructor(title, price) {
-        this.base = 'classic';
-        this.toppings = [];
         this.title = title;
         this.price = price;
+        this.base = 'classic';
+        this.toppings = [];
     }
     addTopping(topping) {
         this.toppings.push(topping);
